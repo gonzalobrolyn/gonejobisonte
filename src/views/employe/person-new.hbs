@@ -1,0 +1,39 @@
+<div class="container marketing mt-4">
+  <div class="row">
+      {{> sid-employe}}
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <div class="col-md-4 mx-auto">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Agregar Persona</h3>
+                </div>
+                <div class="card-body">
+                    <form action="/employe/person-new" method="POST">
+                        <div class="form-group">
+                            <input type="text" name="dni" class="form-control" placeholder="DNI" value="{{dni}}" autofocus>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="nombre" class="form-control" placeholder="Nombre" value="{{nombre}}">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="apellido" class="form-control" placeholder="Apellido" value="{{apellido}}">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="direccion" class="form-control" placeholder="Direccion" value="{{direccion}}">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="celular" class="form-control" placeholder="Celular" value="{{celular}}">
+                        </div>
+                        <div class="form-group" style="text-align: center">
+                            <input class="btn btn-outline-info" type="reset" value="Limpiar">
+                            <button class="btn btn-primary" type="submit">
+                                Guardar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main> 
+  </div>
+</div>

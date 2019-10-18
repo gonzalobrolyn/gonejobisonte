@@ -1,0 +1,80 @@
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="/"> 
+            <img src="/img/logo.png" width="30" height="30" class="d-inline-bl">
+            Bisonte IC 
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item btn-outline-primary">
+                    <a class="nav-link" href="/" style="color: white">
+                        Inicio
+                    </a>
+                </li>
+                <li class="nav-item btn-outline-primary">
+                    <a class="nav-link" href="/about" style="color: white">
+                        Nosotros
+                    </a>
+                </li>
+
+                {{#if user}}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle btn-outline-primary" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white">
+                            Empresa
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/manage">Gerencia</a>
+                            <a class="dropdown-item" href="/accounting">Contabilidad</a>                            
+                            <a class="dropdown-item" href="/library">Biblioteca</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle btn-outline-primary" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white">
+                            Recursos Humanos
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/employe">Empleados</a>
+                            <a class="dropdown-item" href="/users">Usuarios</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle btn-outline-primary" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white">
+                            Bienes
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/storage">Almacenes</a>
+                            <a class="dropdown-item" href="/purchase">Compras</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle btn-outline-primary" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white">
+                            Obras
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/selection">Selección</a>
+                            <a class="dropdown-item" href="/execution">Ejecución</a>
+                            <a class="dropdown-item" href="/liquidate">Liquidación</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle btn-outline-primary" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white">
+                            {{user.name}}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/account">Cuenta</a>
+                            <a class="dropdown-item" style="color: red" href="/users/logout">Cerrar sesión</a>
+                        </div>
+                    </li>
+                {{else}}
+                    <li class="nav-item">
+                        <a class="nav-link btn-outline-success" href="/users/signin" style="color: white">Ingresar
+                        </a>
+                    </li>
+                {{/if}}
+            </ul>
+        </div>
+    </div>
+</nav>

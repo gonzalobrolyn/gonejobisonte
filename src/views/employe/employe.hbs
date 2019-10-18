@@ -1,0 +1,45 @@
+<div class="container marketing mt-4">
+  <div class="row">
+    {{> sid-employe}}
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+      <h1>Empleados</h1>
+      {{#if employe}}
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover" style="background-color: white">
+            <thead>
+              <tr>
+                <th scope="col">RUC</th>
+                <th scope="col">Apellido y Nombre</th>
+                <th scope="col">E-mail</th>
+                <th scope="col">Profesión</th>
+              </tr>
+            </thead>
+            {{#each employe}}
+              <tbody>
+                <tr>
+                  <th scope="row">{{ruc}}</th>
+                  <td>
+                    <a href="/employe/employe-view/{{_id}}">
+                      {{persona.nombre}} {{persona.apellido}}
+                    </a>
+                  </td>
+                  <td>{{email}}</td>
+                  <td>{{profesion}}</td>
+                </tr>
+              </tbody>
+            {{/each}}
+          </table>
+        </div>
+      {{else}}
+        <div class="row">
+          <div class="card mx-auto">
+            <div class="card-body">
+              <p class="lead">No hay empleados para listar.</p>
+              <a href="/employe/person" class="btn btn-success btn-block">Agregar empleado.</a>
+            </div>
+          </div>
+        </div>
+      {{/if}}
+    </main> 
+  </div>
+</div>

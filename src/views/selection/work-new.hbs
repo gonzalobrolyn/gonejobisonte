@@ -1,0 +1,90 @@
+<div class="container marketing mt-4">
+  <div class="row">
+      {{> sid-selection}}
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <div class="col-md-8 mx-auto">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Registrar Obra</h3>
+                </div>
+                <div class="card-body">
+                    <form action="/selection/work-new" method="POST">
+                        <div class="form-group">
+                            <input type="text" name="entidad" class="form-control" placeholder="Nombre de la Entidad" autofocus>
+                        </div>
+                        <div class="form-group">
+                          <select name="objeto" class="form-control">
+                            <option value="A">Seleccione Objeto de Contratación</option>
+                            <option value="Bien">Bien</option>
+                            <option value="Consultoria">Consultoria de Obra</option>
+                            <option value="Obra">Obra</option>
+                            <option value="Servicios">Servicios</option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                          <select name="tipo" class="form-control">
+                            <option value="A">Seleccione Rubro</option>
+                            <option value="Edificación">Edificación</option>
+                            <option value="Saneamiento">Saneamiento</option>
+                            <option value="Viales">Viales</option>
+                            <option value="Otros">Otros</option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="descripcion" class="form-control" placeholder="Descripción de Objeto"></textarea>
+                        </div>
+                        <div class="form-group">
+                          <select name="seleccion" class="form-control">
+                            <option value="A">Seleccione Tipo de Selección</option>
+                            <option value="directa">Adjudicación Directa</option>
+                            <option value="Adjudicacion Simplificada">Adjudicación Simplificada</option>
+                            <option value="Concurso Publico">Concurso Publico</option>
+                            <option value="especial">Regimen Especial</option>
+                          </select>
+                        </div>                        
+                        <div class="form-group">
+                            <input type="text" name="numero" class="form-control" placeholder="Nomenclatura">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="snip" class="form-control" placeholder="Codigo SNIP">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="valor" class="form-control" placeholder="Valor Referencial">
+                        </div>
+
+                        <div class="form-group">
+                            <input type="date" name="fpublicacion" class="form-control" aria-describedby="desFPublicacion">
+                            <small class="form-text text-muted" id="desFPublicacion">Fecha de publicación</small>
+                        </div>  
+                        <div class="form-group">
+                            <input type="date" name="fformulacion" class="form-control" aria-describedby="desFFormulacion">
+                            <small class="form-text text-muted" id="desFFormulacion">Fecha de formulación de consultas y observaciones</small>
+                        </div>   
+                        <div class="form-group">
+                            <input type="date" name="fabsolucion" class="form-control" aria-describedby="desFAbsolucion">
+                            <small class="form-text text-muted" id="desFAbsolucion">Fecha de absolución de consultas y oservaciones</small>
+                        </div>   
+                        <div class="form-group">
+                            <input type="date" name="fintegracion" class="form-control" aria-describedby="desFIntegracion">
+                            <small class="form-text text-muted" id="desFIntegracion">Fecha de integración de bases</small>                        
+                        </div>
+                        <div class="form-group">
+                            <input type="date" name="fpresentacion" class="form-control" aria-describedby="desFPresentacion">
+                            <small class="form-text text-muted" id="desFPresentacion">Fecha de presentacion de ofertas</small>
+                        </div>
+                        <div class="form-group">
+                            <input type="date" name="fotorgamiento" class="form-control" aria-describedby="desFOtorgamiento">
+                            <small class="form-text text-muted" id="desFOtorgamiento">Fecha de otorgamiento de la buena Pro</small>
+                        </div>                  
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-block" type="submit">
+                                Guardar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main> 
+  </div>
+</div>

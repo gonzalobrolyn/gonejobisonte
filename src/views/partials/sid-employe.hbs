@@ -1,0 +1,41 @@
+<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+  <div class="sidebar-sticky mt-4">
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link" href="/employe/person-add">
+          <i class="fas fa-street-view"></i>
+          Agregar Persona
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/employe/person">
+          <i class="fas fa-id-card"></i>
+          Listar Personas
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/employe">
+          <i class="fas fa-users"></i>
+          Listar Empleados
+        </a>
+      </li>
+
+      <hr class="my-2">
+      {{#if folders}}
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="fas fa-folder-open"></i>
+            Carpetas
+          </a>
+        </li>
+      {{/if}}
+      {{#each folders}}
+        <li class="nav-item">
+          <a class="nav-link" href="/employe/folder/{{id}}">
+            {{nombre}}
+          </a>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+</nav>

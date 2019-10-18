@@ -1,0 +1,39 @@
+<div class="container marketing mt-4">
+  <div class="row">
+      {{> sid-employe}}
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <div class="col-md-4 mx-auto">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Editar Datos</h3>
+                </div>
+                <div class="card-body">
+                    <form action="/employe/person-edit/{{person._id}}?_method=PUT" method="POST">
+                        <input type="hidden" name="_method" value="PUT">
+                        <div class="form-group">
+                            <input type="text" name="dni" class="form-control" placeholder="DNI" value="{{person.dni}}">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="nombre" class="form-control" placeholder="Nombre" value="{{person.nombre}}">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="apellido" class="form-control" placeholder="Apellido" value="{{person.apellido}}">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="direccion" class="form-control" placeholder="Direccion" value="{{person.direccion}}">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="celular" class="form-control" placeholder="Celular" value="{{person.celular}}">
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-block" type="submit">
+                                Guardar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main> 
+  </div>
+</div>

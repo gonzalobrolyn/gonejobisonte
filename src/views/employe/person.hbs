@@ -1,0 +1,62 @@
+<div class="container marketing mt-4">
+  <div class="row">
+    {{> sid-employe}}
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+      <h1>Personas</h1>
+      {{#if person}}
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover" style="background-color: white">
+            <thead>
+              <tr>
+                <th scope="col">DNI</th>
+                <th scope="col">Apellido y Nombre</th>
+                <th scope="col">Celular</th>
+                <th scope="col">Dirección</th>
+                <th scope="col">Empleado</th>
+                <th scope="col">Editar</th>
+                <th scope="col">Eliminar</th>
+              </tr>
+            </thead>
+            {{#each person}}
+              <tbody>
+                <tr>
+                  <th scope="row">{{dni}}</th>
+                  <td>{{apellido}} {{nombre}}</td>
+                  <td>{{celular}}</td>
+                  <td>{{direccion}}</td>
+                  <td>
+                    <a href="/employe/employe-add/{{_id}}">
+                      <i class="fas fa-check-double"></i>
+                    </a>
+                  </td>
+                  <td>
+                    <a href="/employe/person-edit/{{_id}}">
+                      <i class="fas fa-edit"></i>
+                    </a>
+                  </td>
+                  <td>
+                    <form action="/employe/person-delete/{{_id}}?_method=DELETE" method="POST">
+                      <input type="hidden" name="_method" value="DELETE">
+                      <button class="btn btn-danger btn-sm" type="submit">
+                        <i class="fas fa-times"></i>
+                      </button>
+                    </form>
+                  </td>
+                </tr>
+              </tbody>
+            {{/each}}
+          </table>
+        </div>
+      {{else}}
+        <div class="row">
+          <div class="card mx-auto">
+            <div class="card-body">
+              <p class="lead">No hay personas para listar.</p>
+              <a href="/employe/person-add" class="btn btn-success btn-block">Agregar datos.</a>
+            </div>
+          </div>
+        </div>
+      {{/if}}
+    </main> 
+  </div>
+</div>

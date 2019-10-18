@@ -1,0 +1,24 @@
+<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+  <div class="sidebar-sticky mt-4">
+    <ul class="nav flex-column">
+      {{#each groups}}
+        <li class="nav-item">
+          <a class="nav-link" href="/accounting/group/{{_id}}">
+            <i class="fas fa-atom"></i>
+            {{nombre}}
+          </a>
+        </li> 
+        {{#each ../folders}}
+          {{#ifCond ../id grupo}}
+            <li class="nav-item">
+              <a class="nav-link" href="/accounting/folder/{{_id}}">
+                {{nombre}}
+              </a>
+            </li>
+          {{/ifCond}}
+        {{/each}}
+      {{/each}}
+      <hr>
+    </ul>
+  </div>
+</nav>

@@ -1,0 +1,101 @@
+<div class="container marketing">
+  <div class="row">
+    {{> sid-employe}}
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+      <div class="card">
+        <div class="card-body">
+          <h1>
+            {{employe.persona.nombre}}
+            {{employe.persona.apellido}}
+          </h1>
+          <div class="row">
+            <div class="col-sm-4">
+              <img src="/img/logo1.png" class="img-fluid mx-auto d-block" width="160px" alt="foto">
+            </div>
+            <div class="col-sm-8">
+              <table class="table table-bordered table-sm">
+                <tbody>
+                  <tr>
+                    <td>{{employe.ruc}}</td>
+                    <td>{{employe.persona.dni}}</td>
+                  </tr>
+                  <tr>
+                    <td>{{employe.persona.direccion}}</td>
+                    <td>{{employe.email}}</td>
+                  </tr>
+                  <tr>
+                    <td>{{employe.persona.celular}}</td>
+                    <td>{{employe.profesion}}</td>
+                  </tr>
+                  <tr>
+                    <td>{{employe.area}}</td>
+                    <td>{{employe.cargo}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div> 
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-sm-3">
+          <p>  
+            <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#creaFolderModal">
+              Crear carpeta
+            </button>
+          </p>
+        </div>
+
+        <div class="col-sm-3">
+          <p>
+            <a href="/employe/employe-edit/{{employe.id}}" class="btn btn-primary btn-block">
+              Editar datos
+            </a>
+          </p>
+        </div>
+
+        <div class="col-sm-3">
+          <p>  
+            <a href="/users/signup/{{employe.id}}" class="btn btn-primary btn-block">Asignar usuario</a>
+          </p>
+        </div>
+
+        <div class="col-sm-3">
+          <form action="/employe/employe-delete/{{employe.id}}?_method=DELETE" method="POST">
+            <input type="hidden" name="_method" value="DELETE">
+            <button class="btn btn-danger btn-block" type="submit">
+              Eliminar Usuario
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+    </main>
+  </div>
+
+  {{!-- Modal para crear carpetas --}}
+  <div class="modal fade" id="creaFolderModal" tabindex="-1" role="dialog" aria-labelledby="creaFolderModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="creaFolderModalLabel">Crear Folder</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="/employe/folder-new/{{employe.id}}" method="POST">
+            <div class="form-group">
+              <input type="text" class="form-control" name="nombre" placeholder="Nombre de la carpeta">
+            </div>
+            <div style="text-align: right">
+              <button type="submit" class="btn btn-primary">Crear</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

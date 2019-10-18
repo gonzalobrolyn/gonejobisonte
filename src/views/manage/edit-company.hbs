@@ -1,0 +1,34 @@
+<div class="container marketing mt-4">
+  <div class="row">
+      {{> sid-manage}}
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+       
+        <div class="col-md-6 mx-auto">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Editar Información</h3>
+                </div>
+                <div class="card-body">
+                    <form action="/manage/edit-company/{{company._id}}?_method=PUT" method="POST">
+                        <input type="hidden" name="_method" value="PUT">
+                        <div class="form-group">
+                            <input type="text" name="razon" class="form-control" placeholder="Razon Social" value="{{company.razon}}">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="ruc" class="form-control" placeholder="R.U.C." value="{{company.ruc}}">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="direccion" class="form-control" placeholder="Dirección" value="{{company.direccion}}">
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-block" type="submit">
+                                Guardar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main> 
+  </div>
+</div>

@@ -5,8 +5,8 @@ const path = require('path')
 const Work = require('../models/Work');
 const Folder = require('../models/Folder');
 const Document = require('../models/Document');
-const { isAuthenticated } = require('../helpers/auth');
-const ordenaFecha = require('../helpers/functions');
+const { isAuthenticated } = require('../helpers/auth')
+const ordenaFecha = require('../helpers/functions')
 
 router.get('/selection', isAuthenticated, async (req, res) => {
     const work = await Work.find({estado: 'Selection'}).sort({fpublicacion: 'desc'});
@@ -118,6 +118,13 @@ router.get('/selection/doc-del/:id', async (req, res) => {
     const document = await Document.findByIdAndDelete(id)
     await fs.unlink(path.resolve('./src/public/'+document.path))
     res.redirect('/selection/folder/'+document.carpeta)
+})
+
+router.get('/selection/execution/:id', async (req, res) => {
+    const estado = 'Execution'
+    await Work.findByIdAndUpdate(req.params.id, {estado})
+    req.flash('success_msg', 'Obra en etapa de ejecución')
+    res.redirect('/execution')
 })
 
 module.exports = router;

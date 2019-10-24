@@ -16,7 +16,10 @@ const WorkSchema = new Schema({
     fabsolucion: Date,
     fintegracion: Date,
     fpresentacion: Date,
-    fotorgamiento: Date
+    fotorgamiento: Date,
+    ffirmacontrato: Date,
+    finicioobra: Date,
+    ejecutor: String
 });
 
 module.exports = mongoose.model('Work', WorkSchema)

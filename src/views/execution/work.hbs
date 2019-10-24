@@ -1,9 +1,9 @@
 <div class="container marketing">
 
   <div class="row">
-      {{> sid-selection}}
+      {{> sid-execution}}
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-       
+      
     <div class="row">
         {{#if work}}
             <div class="col-md-12">
@@ -20,22 +20,12 @@
                               <td>Entidad convocante: {{work.entidad}}</td>
                               <td>Nomenclatura: {{work.numero}}</td>
                             </tr>
+                            
                             <tr>
-                              <td>Tipo de selección: {{work.seleccion}}</td>
-                              <td>Valor referencial: S/ {{work.valor}} Soles</td>
+                              <td>Entidad ejecutora: {{work.ejecutor}}</td>
+                              <td>Fecha inicio de obra: {{work.einicioobra}}</td>
                             </tr>
-                            <tr>
-                              <td>Fecha de Publicación: {{work.epublicacion}}</td>
-                              <td>Fecha de Formulación: {{work.eformulacion}}</td>
-                            </tr>
-                            <tr>
-                              <td>Fecha de Absolución: {{work.eabsolucion}}</td>
-                              <td>Fecha de Integración: {{work.eintegracion}}</td>
-                            </tr>
-                            <tr>
-                              <td>Fecha de Presentación: {{work.epresentacion}}</td>
-                              <td>Fecha de Otorgamiento: {{work.eotorgamiento}}</td>
-                            </tr>
+                            
                           </tbody>
                         </table>
                     </div>   
@@ -45,7 +35,7 @@
             <div class="card mx-auto">
                 <div class="card-body">
                     <p class="lead">No hay registro de Obra.</p>
-                    <a href="/selection" class="btn btn-success btn-block">Ver lista de Obras.</a>
+                    <a href="/execution" class="btn btn-success btn-block">Ver lista de obras en ejecución.</a>
                 </div>
             </div>
         {{/if}}
@@ -70,18 +60,11 @@
 
       <div class="col-sm-3">
         <p>  
-          <a href="/selection/execution/{{work.id}}" class="btn btn-primary btn-block">Pasa a Ejecución</a>
+          <a href="/execution/liquidate/{{work.id}}" class="btn btn-primary btn-block">Pasa a Liquidación</a>
         </p>
       </div>
-
-      <div class="col-sm-3">
-        <p>  
-          <a href="/selection/work-archivar/{{work.id}}" class="btn btn-primary btn-block">Archivar Proceso</a>
-        </p>
-      </div>
-
+      
     </div>
-
     </main> 
   </div>
 
@@ -96,7 +79,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <form action="/selection/folder-new/{{work.id}}" method="POST">
+          <form action="/execution/folder-new/{{work.id}}" method="POST">
             <div class="form-group">
               <input type="text" class="form-control" name="nombre" placeholder="Nombre de la carpeta">
             </div>
@@ -120,7 +103,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <form action="/selection/work-edit/{{work.id}}?_method=PUT" method="POST">
+          <form action="/execution/work-edit/{{work.id}}?_method=PUT" method="POST">
             <input type="hidden" name="_method" value="PUT">
             <div class="form-group">
               <textarea name="descripcion" class="form-control">{{work.descripcion}}</textarea>
@@ -144,53 +127,17 @@
                   </div>
                 </div>
                 <div class="form-group col-sm-6">
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <div class="input-group-text">F. Publicación</div>
-                    </div>
-                    <input type="date" class="form-control" name="fpublicacion" value="{{work.epublicacion}}">
-                  </div>
+                  <input type="text" class="form-control" name="ejecutor" value="{{work.ejecutor}}" placeholder="Entidad Ejecutora">
                 </div>
                 <div class="form-group col-sm-6">
                   <div class="input-group">
                     <div class="input-group-prepend">
-                      <div class="input-group-text">F. Formulación</div>
+                      <div class="input-group-text">F. Inicio de Obra</div>
                     </div>
-                    <input type="date" class="form-control" name="fformulacion" value="{{work.eformulacion}}">
+                    <input type="date" class="form-control" name="finicioobra" value="{{work.einicioobra}}">
                   </div>
                 </div>
-                <div class="form-group col-sm-6">
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <div class="input-group-text">F. Absolución</div>
-                    </div>
-                    <input type="date" class="form-control" name="fabsolucion" value="{{work.eabsolucion}}">
-                  </div>
-                </div>
-                <div class="form-group col-sm-6">
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <div class="input-group-text">F. Integración</div>
-                    </div>
-                    <input type="date" class="form-control" name="fintegracion" value="{{work.eintegracion}}">
-                  </div>
-                </div>
-                <div class="form-group col-sm-6">
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <div class="input-group-text">F. Presentación</div>
-                    </div>
-                    <input type="date" class="form-control" name="fpresentacion" value="{{work.epresentacion}}">
-                  </div>
-                </div>
-                <div class="form-group col-sm-6">
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <div class="input-group-text">F. Otorgamiento</div>
-                    </div>
-                    <input type="date" class="form-control" name="fotorgamiento" value="{{work.eotorgamiento}}">
-                  </div>
-                </div>
+                
             </div>
             <div style="text-align: right">
               <button type="submit" class="btn btn-primary">Guardar cambios</button>

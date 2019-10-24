@@ -2,7 +2,36 @@
   <div class="row">
     {{> sid-liquidate}}
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-      <h1>Obras en Liquidación</h1> 
+      <h1>Obras en Etapa de Liquidación</h1> 
+      <div class="row">
+        {{#each work}}
+          <div class="col-md-6">
+            <p>
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title d-flex justify-content-between align-items-center">
+                    {{descripcion}} Snip: {{snip}}
+                  </h4>
+                  <p>Nombre de la entidad: {{entidad}}</p>
+                  <p>{{numero}}</p>
+                  <P>Valor Referencial: S/ {{valor}} Soles</P>
+                  <p>Fecha de Presentación: {{efecha}}</p>
+                  <a href="/liquidate/work/{{_id}}" class="btn btn-info btn-block btn-sm">
+                    VER
+                  </a>
+                </div>   
+              </div>
+            </p>
+          </div>
+        {{else}}
+          <div class="card mx-auto">
+            <div class="card-body">
+              <p class="lead">No hay obras registardas en liquidación.</p>
+              <a href="/execution" class="btn btn-success btn-block">Ver obras en Ejecución.</a>
+            </div>
+          </div>
+        {{/each}}
+      </div>
     </main> 
   </div>
 </div>

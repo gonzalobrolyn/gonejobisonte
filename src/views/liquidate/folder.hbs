@@ -1,0 +1,117 @@
+<div class="container marketing">
+  <div class="row">
+    {{>sid-liquidate}}
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        
+        <div class="row">
+          <div class="col-sm-3">
+            <p>
+              <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#modalSubirDoc">
+                Subir Documento 
+              </button>
+            </p>
+          </div>
+          <div class="col-sm-3">
+            <p>
+              <a href="/liquidate/work/{{folder.obra}}" class="btn btn-primary btn-block">
+                Volver a Obra 
+              </a>
+            </p>
+          </div>
+          <div class="col-sm-3">
+            <p>
+              <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#modalEditarCarpeta">
+                Editar carpeta
+              </button>
+            </p>
+          </div>
+          <div class="col-sm-3">
+            <p>
+              <a href="/liquidate/folder-del/{{folder.id}}/{{folder.obra}}" class="btn btn-primary btn-block">
+                Eliminar carpeta 
+              </a>
+            </p>
+          </div>
+          </div>
+            <h3>Documentos en carpeta: {{folder.nombre}}</h3>
+          <div class="row">
+          {{#each documents}}
+            <div class="col-sm-3">
+              <p>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">{{asunto}}</h5>
+                    <p>{{referencia}}</p>
+                    <p>{{emisor}}</p>
+                    <a href="{{path}}" target="_blank" class="btn btn-primary btn-sm btn-block">Ver</a>
+                    <a href="/liquidate/doc-del/{{_id}}" class="btn btn-sm btn-block btn-danger">Eliminar</a>
+                  </div>
+                </div>
+              </p>
+            </div>
+          {{/each}}
+        </div>
+    </main>
+  </div>
+
+  {{!-- Modal para subir arhivos  --}}
+  <div class="modal fade" id="modalSubirDoc" tabindex="-1" role="dialog" aria-labelledby="modalSubirDocLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalSubirDocLabel">Subir Documento</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="/liquidate/doc-new/{{folder.id}}/{{folder.obra}}" method="POST" enctype="multipart/form-data">
+            <div class="input-group mb-3">
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" name="document" id="inputDoc">
+                <label for="inputDoc" class="custom-file-label">Buscar Documento</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="text" name="asunto" class="form-control" placeholder="Asunto del documento">
+            </div>
+            <div class="form-group">
+              <textarea name="referencia" class="form-control" placeholder="Resumen del documento"></textarea>
+            </div> 
+            <div class="form-group">
+              <input type="text" name="emisor" class="form-control" placeholder="Nombre del emisor">
+            </div>         
+            <div style="text-align: right">
+              <button type="submit" class="btn btn-primary">Cargar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {{!-- Modal para actualizar carpeta --}}
+  <div class="modal fade" id="modalEditarCarpeta" tabindex="-1" role="dialog" aria-labelledby="modalEditarCarpetaLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalEditarCarpetaLabel">Editar carpeta</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="/liquidate/folder-edit/{{folder.id}}" method="POST">
+            <div class="form-group">
+              <small class="form-text" id="smlNombre">Nombre de la carpeta</small>
+              <input type="text" name="nombre" class="form-control" value="{{folder.nombre}}" aria-describedby="smlNombre">
+            </div>
+            <div style="text-align: right">
+              <button type="submit" class="btn btn-primary">Guardar cambios</button>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

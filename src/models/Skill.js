@@ -1,4 +1,4 @@
-// esquema de los documentos
+// esquema de habilidades
 const mongoose = require('mongoose');
 const {Schema} = mongoose;
 

@@ -1,0 +1,45 @@
+<div class="container marketing">
+
+  <div class="row">
+      {{> sid-library}}
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+      
+    <div class="row">
+        {{#if work}}
+            <div class="col-md-12">
+                <div class="card">                    
+                    <div class="card-body">
+                        <h3 class="card-title d-flex justify-content-between align-items-center">
+                            {{work.descripcion}}
+                        </h3>
+                        <hr>
+                        <h4>Generalidades: </h4>
+                        <table class="table table-bordered table-sm">
+                          <tbody>
+                            <tr>
+                              <td>Entidad convocante: {{work.entidad}}</td>
+                              <td>Nomenclatura: {{work.numero}}</td>
+                            </tr>
+                            
+                            <tr>
+                              <td>Entidad ejecutora: {{work.ejecutor}}</td>
+                              <td>Fecha inicio de obra: {{work.einicioobra}}</td>
+                            </tr>
+                            
+                          </tbody>
+                        </table>
+                    </div>   
+                </div>
+            </div>
+        {{else}}
+            <div class="card mx-auto">
+                <div class="card-body">
+                    <p class="lead">No hay registro de Obra.</p>
+                    
+                </div>
+            </div>
+        {{/if}}
+      </div>
+    </main> 
+  </div>
+</div>

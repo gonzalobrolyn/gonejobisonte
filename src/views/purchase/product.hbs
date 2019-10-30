@@ -11,6 +11,7 @@
               <th>Codigo</th>
               <th>Producto</th>
               <th>Descripción</th>
+              <th>Acciones</th>
             </tr>
           </thead>  
           {{#each product}}
@@ -21,8 +22,39 @@
                 </td>
                 <td>{{nombre}}</td>
                 <td>{{detalle}}</td>
+                <td>
+                  <a href="#" data-toggle="modal" data-target="#modalEditarProducto{{id}}"><i class="fas fa-edit"></i></a>
+                  <a href="#"><i class="fas fa-trash"></i></a>
+                </td>
               </tr>
             </tbody>
+
+            <div class="modal fade" id="modalEditarProducto{{id}}" tabindex="-1" role="dialog" aria-labelledby="modalEditarProductoLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="modalEditarProductoLabel">Editar información de producto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <div class="form-group">
+                        <input type="text" name="codigo" class="form-control" value="{{codigo}}">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" name="nombre" class="form-control" value="{{nombre}}">              
+                      </div>
+                      <div class="form-group">
+                        <textarea name="detalle" class="form-control">{{detalle}}</textarea>
+                      </div>
+                      <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
           {{/each}}
         </table>
 
@@ -39,4 +71,5 @@
       {{/if}}
     </main> 
   </div>
+
 </div>

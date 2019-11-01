@@ -2,10 +2,10 @@ const mongoose = require('mongoose');
 const {Schema} = mongoose;
 
 const ProductSchema = new Schema({
-    nombre: String,
-    detalle: String,
+    nombre: {type: String, index: true},
+    detalle: {type: String, index: true},
     imagen: String,
-    codigo: String,
+    codigo: {type: String, index: true},
     fecha: {type: Date, default: Date.now}
 });
 

@@ -3,6 +3,14 @@
     {{> sid-purchase}}
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
       <h1>Compras</h1> 
+      <form class="form-inline" action="/purchase/search" method="GET">
+        <div class="input-group">
+          <input type="search" class="form-control" name="palabra" placeholder="Buscador de productos" aria-describedby="basic-addon2">
+          <div class="input-group-append">
+            <button type="submit" class="input-group-text btn btn-success" id="basic-addon2">Buscar</button>
+          </div>
+        </div>
+      </form>
     </main> 
   </div>
 </div>

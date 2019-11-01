@@ -40,7 +40,7 @@ router.post('/manage/new-company', isAuthenticated, async (req, res) => {
 });
 
 router.get('/manage', isAuthenticated, async (req, res) => {
-    const company = await Company.findOne({gerente: req.user.id});
+    const company = await Company.findOne();
     if (company){
         const folders = await Folder.find({empresa: company.id}).sort({fecha: 'desc'})
         res.render('manage/company', {company, folders});

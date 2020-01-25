@@ -26,6 +26,19 @@ router.post('/accounting/group-new', isAuthenticated, async (req, res) => {
     res.redirect('/accounting')
 })
 
+router.post('/accounting/group-edit/:id', isAuthenticated, async(req, res) => {
+    const {nombre} = req.body
+    await Folder.findByIdAndUpdate(req.params.id, {nombre})
+    req.flash('success_msg', 'Grupo actualizado con exito')
+    res.redirect('/accounting')
+})
+
+router.get('/accounting/group-del/:id', isAuthenticated, async (req, res) => {
+    const id = req.params.id
+    await Folder.findByIdAndDelete(id)
+    res.redirect('/accounting')
+})
+
 router.post('/accounting/folder-new/:id', isAuthenticated, async (req, res) => {
     const grupo = req.params.id
     const {nombre} = req.body

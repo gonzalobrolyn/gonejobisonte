@@ -11,14 +11,40 @@
             <div class="card">
               <div class="card-body">
                 <h4 class="card-title d-flex justify-content-between align-items-center">
-                  {{nombre}}                 
+                  {{nombre}}            
                 </h4>
+                <p style="text-align: center">
+                  <a href="#" data-toggle="modal" data-target="#modalEditarGrupo{{id}}"><i class="fas fa-edit"></i></a>
+                  <a href="/accounting/group-del/{{id}}"><i class="fas fa-trash"></i></a> 
+                </p>
                 <button type="button" class="btn btn-outline-success btn-block" data-toggle="modal" data-target="#creaFolderModal{{id}}">
                   Crear carpeta
                 </button>
               </div>   
             </div>
           </p>
+        </div>
+
+        {{!-- Modal para editar grupo --}}
+        <div class="modal fade" id="modalEditarGrupo{{id}}" tabindex="-1" role="dialog" aria-labelledby="modalEditarGrupoLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modalEditarGrupoLabel">Editar información de grupo</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form action="/accounting/group-edit/{{id}}" method="POST">
+                  <div class="form-group">
+                    <input type="text" name="nombre" class="form-control" value="{{nombre}}">
+                  </div>
+                  <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
 
         {{!-- Modal para crear carpetas --}}
@@ -51,7 +77,7 @@
               <div class="card-body">
                 <form action="/accounting/group-new" method="POST">
                   <div class="form-group">
-                    <textarea class="form-control" name="nombre" placeholder="Nombre de la Carpeta"></textarea>
+                    <textarea class="form-control" name="nombre" placeholder="Nombre del Grupo"></textarea>
                   </div>
                   <button type="submit" class="btn btn-outline-primary btn-block btn-sm">Crear Grupo</button>
                 </form>
